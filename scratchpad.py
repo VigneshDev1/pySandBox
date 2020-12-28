@@ -1,4 +1,5 @@
-import pandas as pd
+import pandas as pd  # Human readable table format
+import numpy as np  # package to do lot of statistical calculations
 dataset = 'https://sololearn.com/uploads/files/titanic.csv'
 # DataFrame : table of data
 
@@ -12,3 +13,16 @@ getAgeData = df['Age']  # extracts as data series
 getmultiCol = df[['Age', 'Survived', 'Fare']]  # Use double square brackets for multiple columns
 
 print(getmultiCol)
+# To create a boolean value series out of the data
+df['male'] = df['Sex'] == 'male'  # New column created to record boolean value
+print(df.head())
+
+# To convert dataframe to numpy array
+arr = df[['Fare', 'Age']].values
+print(arr.shape)  # shape object returns rows and columns count
+
+print(str(arr[0, 0]) + "  " + str(arr[1, 1]))  # access array elements [row, col] 0 being first row/col
+                                               # to access a whole row eg. arr[0]
+                                               # to access a single col eg. arr[:,1]
+mask = arr[:,1] < 18  # Boolean values created on a mask variable
+print (arr [mask])  # Assign the mask and get new array data for 'true' values only
