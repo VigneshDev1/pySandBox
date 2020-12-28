@@ -21,7 +21,6 @@ print(df.head())
 # To convert dataframe to numpy array
 arr = df[['Fare', 'Age']].values
 print(arr.shape)  # shape object returns rows and columns count
-
 print(str(arr[0, 0]) + "  " + str(arr[1, 1]))  # access array elements [row, col] 0 being first row/col
 # to access a whole row eg. arr[0]
 # to access a single col eg. arr[:,1]
@@ -33,7 +32,7 @@ print(df['male'])
 
 #region .....PLOTTING.....
 from matplotlib import pyplot as plt
-plt.scatter(df['Age'],df['Fare'],c=df['male'])
+plt.scatter(df['Age'],df['Fare'],c=df['Survived'])
 plt.xlabel('Age')
 plt.ylabel('Fare')
 plt.plot([0,80],[85,5])  # Plotting line ([set of x values], [set of y values])
