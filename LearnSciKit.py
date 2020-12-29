@@ -23,17 +23,16 @@ print(str((Y == Y_pred).sum()) + " of " + str(Y.shape[0]) + " datapoints predict
 print('Model Score: {0}%'.format(round(model.score(X1, Y) * 100, 2)))
 print(model.coef_, model.intercept_)
 print(model.coef_)
-# print(Y_pred)
-# # region .....PLOTTING.....
-# from matplotlib import pyplot as plt
-#
-# linx = np.linspace(20, 110, 100)
-# print(model.coef_[0][1])
-# liny = (model.coef_[0][0] * linx + model.intercept_) / (-1 * model.coef_[0][1])
-# plt.scatter(df['Fare'], df['Age'], c=df['Survived'])
-# plt.plot(linx, liny, '-r', label='Linear Regression')
-# plt.xlabel('Fare')
-# plt.ylabel('Age')
-# plt.show()
-#
-# # endregion
+print(Y_pred)
+# region .....PLOTTING.....
+from matplotlib import pyplot as plt
+model.fit(X, Y)
+linx = np.linspace(20, 110, 100)
+liny = (model.coef_[0][0] * linx + model.intercept_) / (-1 * model.coef_[0][1])
+plt.scatter(df['Fare'], df['Age'], c=df['Survived'])
+plt.plot(linx, liny, '-r', label='Linear Regression')
+plt.xlabel('Fare')
+plt.ylabel('Age')
+plt.show()
+
+# endregion
